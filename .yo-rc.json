@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.lextersoft",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "5.6.0",
+    "applicationType": "monolith",
+    "baseName": "ContactApp",
+    "packageName": "com.lextersoft",
+    "packageFolder": "com/lextersoft",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZTY2ZDk3YTYwNmZkNmU4YmEyOTVkMDQxYTdiODY3NDE2Mzc4MWQ3MjM5ZjUzOTc4ODgzYmE4YzJlODM1MjRlMTIyM2YzY2E5MTFlMDlhNmE2MGNjYWNhMWIxZmU3ZDk2NWNkODhjMDZiYWRmMjAxNmRlOWIxNzFmZGQ0NzUxOGY=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "es",
+    "languages": [
+      "es",
+      "en"
+    ]
+  }
+}
