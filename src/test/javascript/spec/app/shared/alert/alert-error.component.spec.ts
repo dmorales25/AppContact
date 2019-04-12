@@ -52,12 +52,12 @@ describe('Component Tests', () => {
             });
             it('Should display an alert on generic error', () => {
                 // GIVEN
-                eventManager.broadcast({ name: 'contactApp.httpError', content: { error: { message: 'Error Message' } } });
-                eventManager.broadcast({ name: 'contactApp.httpError', content: { error: 'Second Error Message' } });
+                eventManager.broadcast({ name: 'contactApp.httpError', content: { error: { message: 'Error MailMessage' } } });
+                eventManager.broadcast({ name: 'contactApp.httpError', content: { error: 'Second Error MailMessage' } });
                 // THEN
                 expect(comp.alerts.length).toBe(2);
-                expect(comp.alerts[0].msg).toBe('Error Message');
-                expect(comp.alerts[1].msg).toBe('Second Error Message');
+                expect(comp.alerts[0].msg).toBe('Error MailMessage');
+                expect(comp.alerts[1].msg).toBe('Second Error MailMessage');
             });
             it('Should display an alert on status 400 for generic error', () => {
                 // GIVEN
@@ -117,7 +117,7 @@ describe('Component Tests', () => {
                 // GIVEN
                 const response = new HttpErrorResponse({
                     url: 'http://localhost:8080/api/foos',
-                    headers: new HttpHeaders().append('app-error', 'Error Message').append('app-params', 'foo'),
+                    headers: new HttpHeaders().append('app-error', 'Error MailMessage').append('app-params', 'foo'),
                     status: 400,
                     statusText: 'Bad Request',
                     error: {
@@ -128,7 +128,7 @@ describe('Component Tests', () => {
                 eventManager.broadcast({ name: 'contactApp.httpError', content: response });
                 // THEN
                 expect(comp.alerts.length).toBe(1);
-                expect(comp.alerts[0].msg).toBe('Error Message');
+                expect(comp.alerts[0].msg).toBe('Error MailMessage');
             });
         });
     });

@@ -1,0 +1,8 @@
+entity Contact {
+    firstName String required,
+    lastName String,
+    email String required,
+    mobile String,
+
+    createdBy String required
+}

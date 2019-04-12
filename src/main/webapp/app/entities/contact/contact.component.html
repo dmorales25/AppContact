@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="contactApp.contact.home.title">Contacts</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-contact" [routerLink]="['/contact/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="contactApp.contact.home.createLabel">
+            Create new Contact
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="contacts">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="contactApp.contact.firstName">First Name</span></th>
+            <th><span jhiTranslate="contactApp.contact.lastName">Last Name</span></th>
+            <th><span jhiTranslate="contactApp.contact.email">Email</span></th>
+            <th><span jhiTranslate="contactApp.contact.mobile">Mobile</span></th>
+            <th><span jhiTranslate="contactApp.contact.createdBy">Created By</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let contact of contacts ;trackBy: trackId">
+                <td><a [routerLink]="['/contact', contact.id, 'view' ]">{{contact.id}}</a></td>
+                <td>{{contact.firstName}}</td>
+                <td>{{contact.lastName}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.mobile}}</td>
+                <td>{{contact.createdBy}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/contact', contact.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/contact', contact.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'contact/'+ contact.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()" mdbWavesEffect>Launch demo modal</button>
+
+
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+                <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

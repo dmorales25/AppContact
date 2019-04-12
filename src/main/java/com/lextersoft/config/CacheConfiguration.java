@@ -38,6 +38,7 @@ public class CacheConfiguration {
             cm.createCache(com.lextersoft.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.lextersoft.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.lextersoft.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.lextersoft.domain.Contact.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
